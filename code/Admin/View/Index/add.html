@@ -1,0 +1,138 @@
+<extend name="Public/base"/>
+
+<block name="title">添加商铺</block>
+
+<block name="head0">商铺管理</block>
+<block name="head1">添加商铺</block>
+
+<block name="body">
+
+        <form class="am-form" action="__SELF__" method="post" enctype="multipart/form-data">
+          <div class="am-g am-margin-top">
+            <div class="am-u-sm-2 am-text-right">
+              商铺名称
+            </div>
+            <div class="am-u-sm-4">
+              <input type="text" class="am-input-sm" name="shopname">
+            </div>
+            <div class="am-u-sm-6"></div>
+          </div>
+          
+          <div class="am-g am-margin-top">
+		  <div class="am-u-sm-2 am-text-right">
+              商铺类别
+            </div>
+            <div class="am-u-sm-4 am-u-end">
+		  <select id="doc-select-1" name="typeid">
+		  <foreach name="typeResult" item="value" key="key">
+			<option value="{$value.tid}">{$value.typename}</option>
+			</foreach>
+		  </select>
+		  </div>
+          </div>
+
+          <div class="am-g am-margin-top">
+            <div class="am-u-sm-2 am-text-right">
+              商铺地址
+            </div>
+            <div class="am-u-sm-4 am-u-end">
+              <input type="text" class="am-input-sm" name="shopid">
+            </div>
+          </div>
+
+            <div class="am-g am-margin-top">
+                <div class="am-u-sm-2 am-text-right">
+                    像素坐标X
+                </div>
+                <div class="am-u-sm-4 am-u-end">
+                    <input type="text" class="am-input-sm" name="px">
+                </div>
+            </div>
+
+            <div class="am-g am-margin-top">
+                <div class="am-u-sm-2 am-text-right">
+                    像素坐标Y
+                </div>
+                <div class="am-u-sm-4 am-u-end">
+                    <input type="text" class="am-input-sm" name="py">
+                </div>
+            </div>
+
+            <div class="am-g am-margin-top">
+                <div class="am-u-sm-2 am-text-right">
+                    经纬度坐标X
+                </div>
+                <div class="am-u-sm-4 am-u-end">
+                    <input type="text" class="am-input-sm" name="lx">
+                </div>
+            </div>
+
+            <div class="am-g am-margin-top">
+                <div class="am-u-sm-2 am-text-right">
+                    经纬度坐标Y
+                </div>
+                <div class="am-u-sm-4 am-u-end">
+                    <input type="text" class="am-input-sm" name="ly">
+                </div>
+            </div>
+
+            <div class="am-g am-margin-top">
+            <div class="am-u-sm-2 am-text-right">
+              商铺电话
+            </div>
+            <div class="am-u-sm-4">
+              <input type="text" class="am-input-sm" name="phone">
+            </div>
+            <div class="am-u-sm-6"></div>
+          </div>
+
+
+          <div class="am-g am-margin-top-sm">
+            <div class="am-u-sm-2 am-text-right">
+              商铺简介
+            </div>
+            <div class="am-u-sm-10">
+              <textarea rows="10" name="introduce"></textarea>
+            </div>
+          </div>
+          
+           <div class="am-g am-margin-top">
+            <div class="am-u-sm-2 am-text-right">
+              商铺LOGO<br>（建议大小：1:1）
+            </div>
+            <div class="am-u-sm-4">
+              <input type="file" name="logo" class="am-btn am-btn-primary am-btn-xs"  id="file">
+            </div>
+            <div class="am-u-sm-6"></div>
+          </div>
+          
+          <div class="am-g am-margin-top">
+            <div class="am-u-sm-2 am-text-right">
+              商铺图片
+            </div>
+            <div class="am-u-sm-4">
+              <input type="file" name="img" class="am-btn am-btn-primary am-btn-xs"  id="file">
+            </div>
+            <div class="am-u-sm-6"></div>
+          </div>
+          
+          
+          <div class="am-g am-margin-top">
+          <div class="am-u-sm-2 am-text-right">
+             &nbsp;
+            </div>
+          <div class="am-margin" style="float:left;">
+			<input type="submit" class="am-btn am-btn-success" value="提交保存">
+		  </div>
+		  
+		  <div class="am-margin" style="float:left;">
+			<input type="reset" class="am-btn am-btn-secondary" value="重置表单">
+		  </div>
+		  
+		  </div>
+		  
+
+        </form>
+   
+
+</block>

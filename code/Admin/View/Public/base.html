@@ -1,0 +1,162 @@
+
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title><block name="title"></block> | {$resultByFront.title} </title>
+  <meta name="keywords" content="index">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="stylesheet" href="__ROOT__/Common/assets/css/amazeui.min.css"/>
+  <link rel="stylesheet" href="__ROOT__/Common/assets/css/admin.css">
+  <script src="__ROOT__/Common/js/jquery.min.js"></script>
+  <block name="style"></block>
+</head>
+
+
+<body>
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+  以获得更好的体验！</p>
+<![endif]-->
+
+
+<header class="am-topbar admin-header">
+  <div class="am-topbar-brand">
+    <strong>{$resultByFront.title}</strong> 
+  </div>
+
+  <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+
+  <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+
+    <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
+      
+      <li class="am-dropdown" data-am-dropdown>
+        <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+          <span class="am-icon-users"></span> <if condition="$role eq 1">超级管理员<else />普通管理员</if> ：{$name} <span class="am-icon-caret-down"></span>
+        </a>
+        <ul class="am-dropdown-content">
+          <li><a href="#" data-am-modal="{target: '#myInfo'}"> <span class="am-icon-user"></span> 我的信息</a></li>
+          <li><a href="{:U('Index/updpsd')}" id="myInfoButtom"><span class="am-icon-cog"></span> 修改密码</a></li>
+          <li><a href="{:U('Index/login')}"><span class="am-icon-power-off"></span> 退出登录</a></li>
+        </ul>
+      </li>
+      <!-- <li><a href="javascript:;" id="admin-fullscreen"><span class="am-icon-arrows-alt"></span> 开启全屏</a></li> -->
+    </ul>
+  </div>
+</header>
+
+<div class="am-cf admin-main">
+  <!-- sidebar start -->
+  <div class="admin-sidebar">
+    <ul class="am-list admin-sidebar-list">
+      <li class="admin-parent">
+		<a class="am-cf" data-am-collapse="{target: '#collapse-nav0'}"><span class="am-icon-home"></span> 商铺管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+		<ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav0">
+          
+          <li><a href="{:U('Index/index')}"><span class="am-icon-list-ol"></span> 商铺列表</a></li>
+          <li><a href="{:U('Index/add')}" class="am-cf"><span class="am-icon-plus-square"></span> 添加商铺</span></a></li>
+          
+        </ul>
+      </li>
+
+
+      
+      <if condition="$role eq 1">
+
+          <li class="admin-parent">
+              <a class="am-cf" data-am-collapse="{target: '#collapse-nav2'}"><span class="am-icon-user"></span> 账号管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+              <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav2">
+                  <li><a href="{:U('User/index')}"><span class="am-icon-list-ol"></span> 用户列表</a></li>
+                  <li><a href="{:U('Manager/index')}"><span class="am-icon-group"></span> 管理员列表</a></li>
+              </ul>
+          </li>
+      
+      <li class="admin-parent">
+		<a class="am-cf" href="{:U('Type/index')}"><span class="am-icon-gears"></span> 类别管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+      </li>
+      
+      <li class="admin-parent">
+		<a class="am-cf" href="{:U('Comment/index')}"><span class="am-icon-comments"></span> 评论管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+      </li>
+
+      
+      </if>
+      <li><a href="{:U('Index/login')}"><span class="am-icon-sign-out"></span> 退出登录</a></li>
+    </ul>
+
+    
+
+    
+  </div>
+  <!-- sidebar end -->
+
+  <!-- content start -->
+  <div class="admin-content">
+
+    <div class="am-cf am-padding">
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg"><block name="head0">404</block></strong> / <small><block name="head1">error page</block></small></div>
+    </div>
+
+    
+	<div class="am-g am-padding">
+	<block name="body">
+        <div class="am-u-sm-12">
+            <h2 class="am-text-center am-text-xxxl am-margin-top-lg">404. Not Found</h2>
+            <p class="am-text-center">没有找到你要的页面</p>
+        <pre class="page-404">
+          .----.
+       _.'__    `.
+   .--($)($$)---/#\
+ .' @          /###\
+ :         ,   #####
+  `-..__.-' _.-\###/
+        `;_:    `"'
+      .'"""""`.
+     /,  ya ,\\
+    //  404!  \\
+    `-._______.-'
+    ___`. | .'___
+   (______|______)
+        </pre>
+        </div>
+
+	</block>
+	</div>
+
+   </div>
+  <!-- content end -->
+
+</div>
+
+<footer>
+  <hr>
+  <p class="am-padding-left">欢迎使用{$resultByFront.title}</p>
+</footer>
+
+<div class="am-modal am-modal-alert" tabindex="-1" id="myInfo">
+  <div class="am-modal-dialog">
+    <div class="am-modal-hd"><strong>我的信息</strong></div>
+    <div class="am-modal-bd" id="MyInfoBox">
+      ID：{$id}
+      <br>
+      用户名：{$name}
+      <br>
+      用户权限：<if condition="$role eq 1">超级管理员<else />普通管理员</if>
+    </div>
+    <div class="am-modal-footer" id="okButtom">
+      <span class="am-modal-btn">确定</span>
+    </div>
+  </div>
+</div>
+
+<script src="__ROOT__/Common/assets/js/zepto.min.js"></script>
+<script src="__ROOT__/Common/assets/js/amazeui.min.js"></script>
+<script src="__ROOT__/Common/assets/js/app.js"></script>
+<script src="__ROOT__/Common/js/jquery.min.js"></script>
+<block name="js"></block>
+</body>
+</html>

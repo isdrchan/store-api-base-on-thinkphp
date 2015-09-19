@@ -1,0 +1,64 @@
+<extend name="Public/base"/>
+
+<block name="title">管理员列表</block>
+
+<block name="head0">账户管理</block>
+<block name="head1">管理员列表</block>
+
+<block name="body">
+<form action="__SELF__" method="post">
+	<div class="am-u-md-9 am-cf"><button type="button" class="am-btn am-btn-primary" onclick="javascript:window.location.href='{:U('Manager/add')}'">添加管理员</button></div>
+    <div class="am-u-md-3 am-cf">
+	    <div class="am-fr">
+	     <div class="am-input-group am-input-group-sm">
+		    <input type="text" class="am-form-field" placeholder="用户搜索" name="name">
+            <span class="am-input-group-btn">
+                  <button class="am-btn am-btn-default type="submit">搜索</button>
+            </span>
+	  </div>
+	</div>
+  </div>
+</form>
+
+<div class="am-g">
+	<div class="am-u-sm-12">
+		<form class="am-form">
+            <table class="am-table am-table-hover table-main">
+				<thead>
+				<tr>
+                    <th class="table-id">ID</th>
+                    <th class="table-title">用户名</th>
+                    <th class="table-type">用户权限</th>
+                    <th class="table-type">登录IP</th>
+                    <th class="table-type">登录时间</th>
+                    <th class="table-set">操作</th>
+              </tr>
+				</thead>
+				
+				<tbody>
+				<foreach name="result" item="value" key="key">
+				<tr <if condition = "$value.role eq 1">class="am-active"</if>>
+			  <td>{$value.id}</td>
+			  <td>{$value.name}</td>
+			  <td>{$value.new}</td>
+              <td>{$value.loginip}</td>
+              <td>{$value.logintime}</td>
+			  <td>
+                <div class="am-btn-toolbar">
+                  <div class="am-btn-group am-btn-group-xs">
+                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary"  onclick="javascript:window.location.href='__URL__/upd/id/{$value.id}'"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger"  onclick="javascript:window.location.href='__URL__/del/id/{$value.id}'"><span class="am-icon-trash-o"></span> 删除</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            </foreach>
+            
+			</tbody>
+			</table>
+		</form>
+	</div>
+</div>
+
+
+</block>

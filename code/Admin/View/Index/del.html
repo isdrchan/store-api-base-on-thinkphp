@@ -1,0 +1,101 @@
+<extend name="Public/base"/>
+
+<block name="title">预览商铺</block>
+
+<block name="head0">商铺管理</block>
+<block name="head1">预览商铺</block>
+
+<block name="body">
+<div class="am-padding">
+
+
+<table class="am-table">
+    <tbody>
+        <tr>
+            <td>商铺ID</td>
+            <td>{$result.id}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>商铺名称</td>
+            <td>{$result.shopname}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>商铺类别</td>
+            <td>{$result.typename}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>商铺地址</td>
+            <td>{$result.shopid}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>像素坐标X</td>
+            <td>{$result.px}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>像素坐标Y</td>
+            <td>{$result.py}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>经纬度坐标X</td>
+            <td>{$result.lx}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>经纬度坐标Y</td>
+            <td>{$result.ly}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>商铺电话</td>
+            <td>{$result.phone}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>商铺简介</td>
+            <td style="width:80%;">{$result.introduce}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>商铺LOGO</td>
+            <td><img src="__ROOT__/public/{$result.logo}"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>商铺缩略图</td>
+            <td><img src="__ROOT__/public/{$result.img}" height="60"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>添加时间</td>
+            <td>{$result.time}</td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="am-padding" style="float:left;">
+<button type="button" class="am-btn am-btn-secondary" onclick="javascript :history.back(-1)">返回列表</button>
+</div>
+
+
+<div class="am-padding" style="float:left;">
+<if condition="$_GET['hide'] neq 1"> <!-- hide值为1则为预览模式，不显示删除按钮 -->
+	<form action="__SELF__" method="post">
+		<input type="hidden" name="id" value="{$result.id}"/>
+		<input type="submit" value="确认删除" class="am-btn am-btn-danger" style="float:left;"/>
+	</form>
+	<br>
+</if>
+</div>
+
+
+
+</div>
+
+</block>

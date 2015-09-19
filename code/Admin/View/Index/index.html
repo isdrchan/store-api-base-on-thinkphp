@@ -1,0 +1,65 @@
+<extend name="Public/base"/>
+
+<block name="title">商铺列表</block>
+
+<block name="head0">商铺管理</block>
+<block name="head1">商铺列表</block>
+
+<block name="body">
+<form action="__SELF__" method="post" style="width:100%;">
+  <div class="am-u-md-3 am-cf">
+	<div class="am-fr">
+	  <div class="am-input-group am-input-group-sm">
+		<input type="search" class="am-form-field" placeholder="商铺搜索" name="shopname">
+			<span class="am-input-group-btn">
+			  <input class="am-btn am-btn-default" type="submit" value="搜索">
+			</span>
+	  </div>
+	</div>
+  </div>
+</div>
+</form>
+
+
+<div class="am-g">
+	<div class="am-u-sm-12">
+		<form class="am-form">
+			<table class="am-table am-table-striped am-table-hover table-main">
+				<thead>
+				<tr>
+                </th><th class="table-id">ID</th><th class="table-title">商铺名称</th><th class="table-type">商铺类别</th><th class="table-type">商铺店号</th><th class="table-type">商铺电话</th><!--<th class="table-type">商铺简介</th>--><th class="table-author">添加者</th><th class="table-date">添加时间</th><th class="table-set">操作</th>
+                </tr>
+				</thead>
+				
+				<tbody>
+				<foreach name="result" item="value" key="key">
+				<tr>
+			  <td>{$value.id}</td>
+			  <td><a href="__URL__/del/id/{$value.id}/hide/1">{$value.shopname}</a></td>
+			  <td>{$value.typename}</td>
+			  <td>{$value.shopid}</td>
+			  <td>{$value.phone}</td>
+			  <!--<td>{$value.introduce|msubstr=0,10,'utf-8',true}</td>-->
+			  <td>{$value.new} (id:{$value.author})</td>
+			  <td>{$value.time}</td>
+			  <td>
+                <div class="am-btn-toolbar">
+                  <div class="am-btn-group am-btn-group-xs">
+                    
+                   <button type="button" class="am-btn am-btn-default am-btn-xs" onclick="javascript:window.location.href='__URL__/del/id/{$value.id}/hide/1'"><span class="am-icon-copy" ></span> 详情</button>
+                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary"  onclick="javascript:window.location.href='__URL__/upd/id/{$value.id}'"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                    <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger"  onclick="javascript:window.location.href='__URL__/del/id/{$value.id}'"><span class="am-icon-trash-o"></span> 删除</button> 
+                  </div>
+                </div>
+              </td>
+            </tr>
+            </foreach>
+            
+			</tbody>
+			</table>
+		</form>
+	</div>
+</div>
+
+
+</block>

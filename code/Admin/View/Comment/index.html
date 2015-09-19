@@ -1,0 +1,64 @@
+<extend name="Public/base"/>
+
+<block name="title">评论管理</block>
+
+<block name="head0">评论管理</block>
+<block name="head1"></block>
+
+<block name="body">
+    <form action="__SELF__" method="post">
+        <div class="am-u-md-3 am-cf">
+            <div class="am-fr">
+                <div class="am-input-group am-input-group-sm">
+                    <input type="text" class="am-form-field" placeholder="评论搜索" name="keyword">
+            <span class="am-input-group-btn">
+                  <button class="am-btn am-btn-default" type="submit">搜索</button>
+            </span>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="am-g">
+        <div class="am-u-sm-12">
+            <form class="am-form">
+                <table class="am-table am-table-hover table-main">
+                    <thead>
+                    <tr>
+                        <th class="table-id">ID</th>
+                        <th class="table-title">用户</th>
+                        <th class="table-type">商铺</th>
+                        <th class="table-type">内容</th>
+                        <th class="table-type">时间</th>
+                        <th class="table-type">ip</th>
+                        <th class="table-set">操作</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <foreach name="result" item="value" key="key">
+                        <tr>
+                            <td>{$value.cid}</td>
+                            <td>{$value.username}</td>
+                            <td>{$value.shopname}</td>
+                            <td>{$value.content}</td>
+                            <td>{$value.time}</td>
+                            <td>{$value.ip}</td>
+                            <td>
+                                <div class="am-btn-toolbar">
+                                    <div class="am-btn-group am-btn-group-xs">
+                                        <button id="del" type="button" class="am-btn am-btn-default am-btn-xs am-text-danger"  onclick="javascript:window.location.href='__URL__/del/id/{$value.cid}'"><span class="am-icon-trash-o"></span> 删除</button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </foreach>
+
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+
+
+</block>

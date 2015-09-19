@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>后台管理登录页面 | {$resultByFront.title} 商铺展示系统</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="stylesheet" href="__ROOT__/Common/assets/css/amazeui.min.css"/>
+  <script src="__ROOT__/Common/js/jquery.min.js"></script>
+  <style>
+    .header {
+      text-align: center;
+    }
+    .header h1 {
+      font-size: 200%;
+      color: #333;
+      margin-top: 30px;
+    }
+    .header p {
+      font-size: 14px;
+    }
+    #loginInfo {
+		float:right;
+		color:red;
+    }
+  </style>
+</head>
+<body>
+<div class="header">
+  <div class="am-g">
+    <h1>{$resultByFront.title}</h1>
+    <p>欢迎使用 商铺展示系统 : )</p>
+  </div>
+  <hr />
+</div>
+<div class="am-g">
+  <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
+    
+    <br>
+    <h3>登录到后台管理页面</h3>
+    <hr>
+    <br>
+    
+    <form method="post" class="am-form" action="__SELF__">
+      <label for="email">用户名:</label>
+      <input type="text" name="name" id="email" value="">
+      <br>
+      <label for="password">密码:</label>
+      <input type="password" name="password" id="password" value="">
+      <br>
+      
+      <br />
+      <div class="am-cf">
+        <input type="submit" id="submitButton" name="" value="登 录" class="am-btn am-btn-primary am-btn-sm am-fl">
+        <div id="loginInfo"></div>
+      </div>
+      
+    </form>
+    
+  </div>
+</div>
+
+<script type="text/javascript">
+	$("form").submit(function(){
+		var self = $(this);
+		$.post(self.attr("action"), self.serialize(), function (response, status, xhr) {
+			$('#loginInfo').html(response.info);
+			if(response.status){
+				window.location.href = response.url;
+			}
+		}, 'json');
+		return false;
+	});
+	
+</script>
+</body>
+</html>

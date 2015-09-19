@@ -1,0 +1,66 @@
+<extend name="Public/base"/>
+
+<block name="title">{$result.username}的详情</block>
+
+<block name="head0">账户管理</block>
+<block name="head1">{$result.username}的详情</block>
+
+<block name="body">
+<div class="am-padding">
+
+
+<table class="am-table">
+    <tbody>
+        <tr>
+            <td>ID</td>
+            <td>{$result.uid}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>用户名</td>
+            <td>{$result.username}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>电子邮箱</td>
+            <td>{$result.email}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>登录IP</td>
+            <td>{$result.loginip}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>登录时间</td>
+            <td>{$result.logintime}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>收藏店铺ID</td>
+            <td>{$result.favorite}</td>
+            <td></td>
+        </tr>
+
+
+
+    </tbody>
+</table>
+
+<div class="am-padding" style="float:left;">
+<button type="button" class="am-btn am-btn-secondary" onclick="javascript :history.back(-1)">返回列表</button>
+</div>
+
+    <if condition="$_GET['hide'] neq 1"> <!-- hide值为1则为预览模式，不显示删除按钮 -->
+<div class="am-padding" style="float:left;">
+	<form action="__SELF__" method="post">
+		<input type="hidden" name="id" value="{$result.id}"/>
+		<input type="submit" value="确认删除" class="am-btn am-btn-danger" style="float:left;"/>
+	</form>
+	<br>
+</div>
+    </if>
+
+
+</div>
+</block>
